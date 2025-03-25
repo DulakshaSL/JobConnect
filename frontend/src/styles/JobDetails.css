@@ -1,0 +1,259 @@
+/* src/styles/JobDetails.css */
+
+.job-details-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin-top: 15px;
+  
+}
+
+.company-overview {
+  width: 40%;
+  background-color: #222222cb;
+  border-radius: 8px;
+  padding-left: 20px;
+  border-radius: 8px;
+  height: 75vh;
+  margin-left: 68px;
+  
+}
+
+
+.company-overview h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22px;
+
+ 
+  
+}
+
+.company-head {
+display: flex;
+justify-content: space-between;
+ }
+
+.company-head img{
+ float: right;
+ width: 32px;
+ height: 32px;
+ margin-right: 15px;
+ margin-top: 10px;
+ 
+}
+
+.job-section{
+  margin-top: -55px;
+  padding-bottom: 35px;
+  
+}
+
+.company-section{
+  margin-top: -51px;
+  
+}
+
+.job-details {
+margin-right: 66px;
+
+
+}
+
+
+
+.job-details-container .social-media-links a {
+  margin-right: 10px;
+  color: #b3b3b3; 
+}
+
+
+.job-details-container .social-media-links a :hover {
+  color: #2D7ABE;
+}
+
+.job-details-container .company-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+
+}
+
+.job-details-container .company-overview h3 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 17px;
+  margin-bottom: 15px;
+ 
+
+}
+
+.job-details-container .company-overview p {
+  margin: 10px 0;
+  text-align: justify;
+  width: 95%;
+  padding-bottom: 10px;
+  font-size: 15px;
+ 
+}
+
+.no-jobs{
+ color: #DADADA;
+ font-size: 14px;
+
+}
+
+.head-section .apply-btn{
+float: right;
+position: relative;
+bottom: 110px;
+
+
+}
+
+.job-details-container .job-details {
+  width: 70%;
+  background-color: transparent;
+  border: 1px solid #353535; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 8px;
+}
+
+.job-details-container .job-details h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+.job-details .jtype, .jposted {
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin: 5px 0;
+ color: #DADADA;
+}
+
+.job-details .jposted {
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin: 5px 0;
+ color: #DADADA;
+}
+
+
+ .job-details h4 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 17px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin: 5px 0;
+  color: white;
+}
+
+.job-details p {
+ color: white;
+ text-align: justify;
+ font-size: 15px;
+}
+
+.job-details-container .job-details h3 {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #00aaff;
+}
+
+.job-details-container .job-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+  margin-bottom: 10px;
+}
+
+.job-details-container .job-details li {
+  padding-bottom: 5px;
+  text-align: justify;
+  font-size: 15px;
+  
+}
+
+.htp{
+  font-size: 13px;
+}
+
+
+.job-poster-container{
+padding-top: 10px;
+}
+
+.job-details-container .job-poster {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.job-details-container .job-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.job-details-container .apply-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.job-details-container .apply-btn {
+  font-size: 14px;
+  background-color: #091e6ecb;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 150px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+
+.job-details-container .save-btn {
+  font-size: 14px;
+  position: relative;
+  bottom: 110px;
+  right: 15px;
+  float: right;
+  background-color: #091e6ecb;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 6px;
+  width: 80px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+
+.job-details-container .apply-btn:hover {
+  background-color: #071757cb;
+
+}
+
+.save-icon {
+  position: relative;
+  bottom:2px;
+  right: 5px;
+  width: 24px; 
+  height: auto;
+ 
+}
+
+
+.job-details-container .save-btn:hover {
+  background-color: #071757cb;
+}

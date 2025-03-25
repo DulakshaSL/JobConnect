@@ -1,0 +1,108 @@
+/* src/styles/TopHiringCompanies.css */
+.top-hiring-companies {
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.top-hiring-companies h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 26px;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.companies-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.company-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.company-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.company-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.company-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.company-card:hover .company-image {
+  transform: scale(1.1);
+}
+
+.company-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.company-info h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.company-info p {
+  font-size: 1rem;
+  color: #aaa;
+  margin: 0;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .company-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .company-cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .companies-wrapper {
+    flex-direction: column;
+  }
+}

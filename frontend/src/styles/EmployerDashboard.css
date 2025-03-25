@@ -1,0 +1,138 @@
+/* EmployerDashboard.css */
+
+/* Base Styles */
+.employer-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #121212;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+  
+  /* Header Section */
+  .dashboard-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+  }
+
+  .count{
+    color: white;
+  }
+  
+  .dashboard-header h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Stats Cards */
+  .stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .stat-card h3 {
+    color: #b0b0b0;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-card .count {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Action Buttons */
+  .dashboard-actions {
+    margin-bottom: 2.5rem;
+  }
+  
+  .primary-btn {
+    display: inline-block;
+    background-color: #646cff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .primary-btn:hover {
+    background-color: #535bf2;
+  }
+  
+  /* Job Listings Section */
+  .job-listings-section {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .job-listings-section h2 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  /* Loading and Error States */
+  .loading {
+    text-align: center;
+    padding: 3rem;
+    color: #858585;
+    font-size: 1.2rem;
+  }
+  
+  .error {
+    text-align: center;
+    padding: 2rem;
+    color: #ff6b6b;
+    background-color: #2a1a1a;
+    border-radius: 8px;
+    margin: 2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .employer-dashboard {
+      padding: 1rem;
+    }
+  
+    .stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .dashboard-header h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* If you want a smooth transition when changing themes */
+  .employer-dashboard {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }

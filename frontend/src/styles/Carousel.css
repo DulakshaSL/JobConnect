@@ -1,0 +1,122 @@
+/* Main Carousel Styles */
+
+.popular-label {
+    font-size: 24px;           
+    font-weight: bold;         
+    margin-bottom: 20px;       
+    color: white;               
+    padding-bottom: 10px;     
+    padding-top: 25px;
+    padding-left: 110px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  #carousel-container {
+    position: relative;
+    width: 95%;
+    height: 525px;
+    border: none;
+    overflow: hidden;
+    
+    margin-left: 40px;
+    
+  }
+  
+  .carousel-slide {
+    transition: opacity 0.4s ease-in-out; /* Fade effect */
+    opacity: 0; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    
+  }
+  
+  .carousel-slide img {
+    height: 525px;
+    width: 100%;  
+    display: block;
+    object-fit: cover;  /* This makes sure the images cover the area without distortion */
+    object-position: center
+  }
+  
+  .carousel-btn {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 15px 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border: none;
+    background-color: #0a5597;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    bottom: 60px;
+  }
+  
+  .carousel-btn:hover {
+    background-color: #073b68; 
+  }
+  
+ 
+
+  #prevBtn:hover, #nextBtn:hover {
+  background-color: #424547;
+  color: #0a5597; 
+  }
+  
+  .carousel-overlay h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 29px;
+    font-weight: bold;
+    position: relative;
+    bottom: 80px;
+  }
+  
+  .carousel-overlay p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: normal;
+    width: 60%;
+    position: relative;
+    bottom: 80px;
+   
+  }
+  
+  
+  #prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 10px 15px;
+    font-size: 24px;
+    
+  }
+  
+  .carousel-overlay {
+    position: absolute;
+    left: 125px;
+    bottom: 100px;
+    color: white;
+    padding: 5px 10px;
+    
+   
+  }
+  
+  #prevBtn {
+    left: 10px;
+  }
+  
+  #nextBtn {
+    right: 10px;
+  }

@@ -1,0 +1,111 @@
+/* General styling for post feed */
+.post-feed-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .post-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post-time {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .post-content p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  
+  .post-media {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+  
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .post-footer button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-footer button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .like-btn {
+    color: #4CAF50;
+  }
+  
+  .comment-btn {
+    color: #2196F3;
+  }
+  
+  .share-btn {
+    color: #ff9800;
+  }
+  
+  @media (max-width: 768px) {
+    .post-feed-container {
+      padding: 10px;
+    }
+  
+    .post-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .post-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .post-footer button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  

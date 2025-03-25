@@ -1,0 +1,113 @@
+.application-tracker-container {
+    max-width: 1500px;
+    margin-top: -60px;
+    padding: 20px;
+    color: #f0f0f0;
+    
+}
+
+.application-tracker-container h2 {
+ font-family: 'Times New Roman', Times, serif;
+ font-size: 22px;
+    
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-section label {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.filter-section select {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.filter-section select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.applications-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+.application-card {
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    background-color: #1e1e1e;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+}
+
+.company-logo img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.application-details h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.application-details p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.application-details button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.application-details button:hover {
+    background-color: #0056b3;
+}
+
+.application-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.application-status.pending {
+    color: #ffae42;
+}
+
+.application-status.accepted {
+    color: #4caf50;
+}
+
+.application-status.rejected {
+    color: #e53935;
+}

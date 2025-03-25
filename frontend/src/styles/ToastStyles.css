@@ -1,0 +1,25 @@
+.Toastify__toast {
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: 500;
+    background-color: rgb(69, 69, 69); /* Primary button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 35px; /* Padding inside buttons */
+    margin-top: 25px;
+    cursor: pointer; /* Pointer cursor */
+    color: #ffffff; /* White text */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin-right: 10px;
+    
+}
+
+
+.Toastify__toast--success {
+    background-color: rgb(69, 69, 69); 
+}
+
+.Toastify__toast--error {
+    background-color: rgb(69, 69, 69); 
+}

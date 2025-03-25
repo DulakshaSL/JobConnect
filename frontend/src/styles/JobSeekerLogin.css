@@ -1,0 +1,183 @@
+/* src/styles/JobSeekerLogin.css */
+
+.login-container {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #1c1c1c; /* Dark background */
+
+  }
+
+  .login-image {
+    flex: 1; /* Take up equal space as the form */
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center; /* Center the image vertically */
+  }
+  
+  .login-image img {
+    max-width: 550px; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  
+  .login-form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    width: 500px; /* Fixed width for the form */
+    padding: 20px; /* Padding inside the form */
+    background-color: #222; /* Dark background for dark mode */
+    color: #fff; /* White text for dark mode */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add some shadow for depth */
+    margin-bottom: 25px;
+    padding-bottom: 45px;
+    margin-right: 100px;
+
+  }
+  
+  .login-container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-bottom: 30px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+  
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    width: 95%; /* Consistent width */
+    font-size: 14px;
+    height: 40px; /* Consistent height */
+    margin-bottom: 25px; /* Space between inputs */
+    border: 1px solid #606060; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside inputs */
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text for inputs */
+  }
+  
+  /* Change the border color on focus */
+  .login-container input[type="email"]:focus,
+  .login-container input[type="password"]:focus {
+    border: 1px solid #4a90e2; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  .login-container button {
+    background-color: rgb(69, 69, 69); /* Primary button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 35px; /* Padding inside buttons */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-top: 10px; /* Space above button */
+  }
+  
+  .login-container button:hover {
+    background-color: #656565; /* Darker on hover */
+  }
+
+  .login-container .forgot-password{
+   position: relative;
+   left: 385px;
+
+  }
+  
+  .login-container .signup-link{
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #b3b3b3; 
+   
+    
+   }
+   
+   .login-container .floating-label-input {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .login-container .floating-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: #ffffff; /* Text color for dark mode */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+ .login-container .floating-label {
+    position: absolute;
+    top: 35%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    color: #aaa;
+  }
+  
+  .login-container .floating-input:focus + .floating-label,
+  .login-container .floating-input:not(:placeholder-shown) + .floating-label {
+    top: 0px;
+    font-size: 12px;
+    color: #dadada;
+    background-color: #222;
+    padding: 0 4px;
+    transform: translateY(-50%);
+  }
+
+
+
+
+  .links {
+    
+    margin-top: 25px; /* Space above links */
+  }
+  
+  .forgot-password,
+  .signup-link a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #00aaff; 
+    font-weight: bold;
+    text-decoration: none; 
+    transition: color 0.3s;
+    
+  }
+  
+  .forgot-password:hover,
+  .signup-link a:hover {
+    color: #0099cc; 
+    text-decoration: none;
+  }
+  
+  .social-login {
+    text-align: center; /* Center align social login text */
+    margin-top: 25px; /* Space above social login section */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #b3b3b3; 
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center; /* Center social icons */
+    gap: 20px; /* Space between icons */
+  }
+  
+  
+  .social-icons a {
+    color: #b3b3b3;  /* Icon color */
+    font-size: 24px; /* Size of icons */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .social-icons a:hover {
+    color: #4a90e2; /* Change color on hover */
+  }
+  
+  

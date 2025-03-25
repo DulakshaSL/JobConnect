@@ -1,0 +1,267 @@
+.profile-main {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.profile-container {
+    padding-left: 55px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    color: white;
+    align-items: center;
+   
+   
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    gap: 50px;
+   
+  }
+  
+  .profile-image {
+    display: flex;
+    flex-direction: column;
+   
+  }
+  
+  .profile-picture {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .profile-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  input[type="file"] {
+    margin-top: 5px;
+  }
+  
+  .profile-info button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .profile-info button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+  }
+  
+  
+  .profile-info {
+    text-align: left;
+
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .profile-info p {
+    margin: 5px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+  }
+
+  /* Skills & Experience Section */
+.skills-performance {
+  text-align: center;
+}
+
+.skills-performance h3 {
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.chart-container {
+  width: 350px;
+  max-width: 370px;
+  
+  padding: 20px;
+}
+
+.chart-container canvas {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* CV Section */
+.cv-section {
+  margin-top: 30px;
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cv-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.tab-content a {
+  display: inline-block;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.tab-content a:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+.tab-content {
+  background-color: #212121;
+  padding: 20px;
+ 
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(19, 19, 19, 0.15);
+ margin-left: 25px;
+ margin-right: 25px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.tab-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 8px;
+}
+
+.personal-info-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 16px; /* Space between columns and rows */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #9ca3af;
+}
+
+input {
+  width: 95%; /* Consistent width */
+  font-size: 14px;
+  height: 30px; /* Consistent height */
+  margin-bottom: 25px; /* Space between inputs */
+  border: 1px solid #606060; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside inputs */
+  background-color: transparent; /* Transparent background */
+  color: white; /* White text for inputs */
+  width: 550px;
+}
+
+input:read-only {
+  background-color: transparent;
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #4a4a4a;
+  margin-top: 20px;
+}
+
+.tab {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 10px 20px;
+  min-width: 50px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #242323;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tab:hover {
+  background-color: #f0f0f0;
+}
+
+.tab.active {
+  background-color: #333;
+  color: white;
+  border-bottom: 3px solid #007bff;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.state{
+ 
+ 
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-image {
+    margin-bottom: 20px;
+  }
+
+  .profile-info h2 {
+    font-size: 20px;
+  }
+
+  .profile-info p {
+    font-size: 14px;
+  }
+
+  .profile-info button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .chart-container {
+    max-width: 400px;
+  }
+}

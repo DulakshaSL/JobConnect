@@ -1,0 +1,555 @@
+/* src/styles/JobSeekerSignup.css */
+
+/* src/styles/JobSeekerSignup.css */
+
+.signup-container {
+    display: flex;
+    background-color: #1c1c1c;
+    width: 100%;
+    height: 100%; /* Full height */
+    
+  }
+
+  /* Floating label container */
+.floating-label-input  {
+  position: relative;
+  margin-bottom: 9px;
+
+}
+
+/* Input styling */
+.floating-input  {
+  background-color: transparent;
+    width: 95%; /* Consistent width */
+    height: 20px; /* Consistent height */
+    margin-bottom: 25px; /* Space between inputs */
+    border: 1px solid #606060;
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px 10px; /* Padding inside inputs */
+    color: white; /* Black text for inputs */
+}
+
+
+
+
+
+/* Placeholder for compatibility with the floating label */
+.floating-input::placeholder {
+  color: transparent;
+}
+
+
+/* Label transition for focused or filled inputs */
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+  top: 0;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+
+/* Label styling */
+.floating-label2 {
+  position: absolute;
+  top: 35%;
+  left: 25px;
+  color: #dadada;
+  font-size: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+
+/* Label transition for focused or filled inputs */
+.floating-input:focus ~ .floating-label2,
+.floating-input:not(:placeholder-shown) ~ .floating-label2 {
+  top: 0;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+/* Label styling */
+.floating-label3{
+  position: absolute;
+  top: 35%;
+  left: 15px;
+  color: #dadada;
+  font-size: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+
+
+/* Label styling */
+.floating-label4{
+  position: absolute;
+  top: 35%;
+  left: 15px;
+  color: #dadada;
+  font-size: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+
+
+/* Label transition for focused or filled inputs */
+.floating-input:focus ~ .floating-label3,
+.floating-input:not(:placeholder-shown) ~ .floating-label3 {
+  top: 0;
+  left: 45px;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+  
+  .image-container {
+    flex: 1; /* Image takes half of the width */
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center; /* Center the image */
+  }
+  
+  .image-container img {
+    max-width: 35%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .form-container {
+    flex: 1; /* Form takes half of the width */
+    display: flex;
+    width: 100%;
+    height: 105vh;
+    padding: 20px; /* Add padding */
+    background-color: #222; /* Dark background for dark mode */
+    color: #fff; /* White text for dark mode */
+    width: 100%; /* Fixed width for form */
+    margin: 0 auto; /* Center the form */
+    margin-right: 35px;
+    margin-bottom: 50px;
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 45px;
+    padding-left: 35px;
+  }
+  
+  .form-step {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+   
+    height: 300px; /* Fixed height for all steps */
+    width: 750px; /* Full width of the container */
+  }
+  
+  h2 {
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 20px; /* Space below the heading */
+    margin-top: 95px;
+    margin-bottom: 20px;
+  }
+
+  h4{
+    font-family: 'Times New Roman', Times, serif;
+    color: #b3b3b3; 
+    font-size: 14px;
+    margin-bottom: 42px;
+  }
+
+  .login-prompt {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #b3b3b3; 
+    margin-top: 30px;
+  }
+  
+  .login-link {
+    color: #00aaff; 
+    font-weight: bold;
+    text-decoration: none; 
+    transition: color 0.3s;
+  }
+  
+  .login-link:hover {
+    color: #0099cc; 
+    text-decoration: none;
+  }
+  
+
+  
+  
+  
+input[type="date"],
+
+input[type="file"]
+ {
+    background-color: transparent;
+    width: 95%; /* Consistent width */
+    height: 40px; /* Consistent height */
+    margin-bottom: 25px; /* Space between inputs */
+    border: 1px solid #606060;
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px 10px; /* Padding inside inputs */
+    color: white; /* Black text for inputs */
+  }
+
+
+
+ 
+  input[name="date_of_birth"]
+  
+  
+   {
+      background-color: transparent;
+      min-width: 95%; /* Consistent width */
+      height: 40px; /* Consistent height */
+      margin-bottom: 25px; /* Space between inputs */
+      border: 1px solid #606060;
+      border-radius: 5px; /* Rounded corners */
+      padding: 20px 10px; /* Padding inside inputs */
+      color: white; /* Black text for inputs */
+    }
+
+  input[name="first_name"]
+  
+   {
+      background-color: transparent;
+      width: 340px; /* Consistent width */
+      height: 40px; /* Consistent height */
+      margin-bottom: 25px; /* Space between inputs */
+      border: 1px solid #606060;
+      border-radius: 5px; /* Rounded corners */
+      padding: 20px 10px; /* Padding inside inputs */
+      color: white; /* Black text for inputs */
+    }
+
+    input[name="sur_name"]
+   
+  
+    {
+       background-color: transparent;
+       width: 340px; /* Consistent width */
+       height: 40px; /* Consistent height */
+       margin-bottom: 25px; /* Space between inputs */
+       border: 1px solid #606060;
+       border-radius: 5px; /* Rounded corners */
+       padding: 20px 10px; /* Padding inside inputs */
+       color: white; /* Black text for inputs */
+     }
+
+     input[name="phone_number"],
+     input[name="district"],
+     input[name="id_no"]
+  
+     {
+        background-color: transparent;
+        width: 95%; /* Consistent width */
+        height: 20px; /* Consistent height */
+        margin-bottom: 25px; /* Space between inputs */
+        border: 1px solid #606060;
+        border-radius: 5px; /* Rounded corners */
+        padding: 20px 10px; /* Padding inside inputs */
+        color: white; /* Black text for inputs */
+      }
+
+      input[name="age"]
+      {
+        background-color: transparent;
+        margin-left: 12px;
+        width: 120%; /* Consistent width */
+        height: 40px; /* Consistent height */
+        margin-bottom: 25px; /* Space between inputs */
+        border: 1px solid #606060;
+        border-radius: 5px; /* Rounded corners */
+        padding: 20px 10px; /* Padding inside inputs */
+        color: white; /* Black text for inputs */
+      }
+
+      
+      select[name="gender_type"]
+      {
+        background-color: transparent;
+        margin-left: 75px;
+        
+        width: 120%; /* Consistent width */
+        height: 55px; /* Consistent height */
+        
+        margin-bottom: 25px; /* Space between inputs */
+        border: 1px solid #606060;
+        border-radius: 5px; /* Rounded corners */
+        padding: 20px 10px; /* Padding inside inputs */
+        color: white;
+      }
+
+
+
+
+
+  
+  
+
+  /* Change the border color on focus */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select
+{
+    border: 1px solid #606060; /* Light border */
+    background-color: transparent;
+    outline: none; /* Remove the default outline */
+   
+}
+
+/* Disable color change for autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #222 inset !important;
+    -webkit-text-fill-color: white !important; 
+}
+
+
+.error
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+}
+
+.pi, .ei, .we , .jp {
+  padding-bottom: 15px;
+}
+
+/* Style for select element */
+select #gender_type {
+    min-width: 225px; /* Consistent width */
+    margin-left: 35px;
+    margin-right: 50px;
+    min-height: 58px; /* Consistent height */
+    margin-bottom: 25px; /* Space between inputs */
+    font-size: 12px;
+    border: 1px solid #606060; /* Darker border for dark mode */
+    border-radius: 5px; /* Rounded corners */
+    background-color: transparent;
+    padding-left: 10px;
+    color: #dadada; /* White text for select */
+    appearance: none; /* Remove default arrow for better customization */
+  }
+  
+/* Style for select element */
+.floating-input3 ,.floating-input4 {
+  min-width: 98%; /* Consistent width */
+
+  margin-right: 50px;
+  min-height: 58px; /* Consistent height */
+  margin-bottom: 25px; /* Space between inputs */
+  font-size: 12px;
+  border: 1px solid #606060; /* Darker border for dark mode */
+  border-radius: 5px; /* Rounded corners */
+  background-color: transparent;
+  padding-left: 10px;
+  color: #dadada; /* White text for select */
+  appearance: none; /* Remove default arrow for better customization */
+}
+
+/* Style for select element */
+.floating-input6 {
+  width: 375px; /* Consistent width */
+margin-left: 150px;
+  margin-right: 50px;
+  min-height: 58px; /* Consistent height */
+  margin-bottom: 25px; /* Space between inputs */
+  font-size: 12px;
+  border: 1px solid #606060; /* Darker border for dark mode */
+  border-radius: 5px; /* Rounded corners */
+  background-color: transparent;
+  padding-left: 10px;
+  color: #dadada; /* White text for select */
+  appearance: none; /* Remove default arrow for better customization */
+}
+
+
+/* Label styling */
+.floating-label {
+  position: absolute;
+  top: 35%;
+  left: 15px;
+  color: #dadada;
+  font-size: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+
+/* Label styling */
+.floating-label-gender {
+  position: absolute;
+  top: 35%;
+  color: white;
+  width: 95%;
+  left: 123px;
+  color: #dadada;
+  font-size: 12px;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+
+/* Label transition for focused or filled inputs */
+.floating-input-gender:focus ~ .floating-label3,
+.floating-input-gender:not(:placeholder-shown) ~ .floating-label3 {
+  top: 0;
+  left: 90px;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+
+/* Label transition for focused or filled inputs */
+.floating-input3:focus ~ .floating-label3,
+.floating-input3:not(:placeholder-shown) ~ .floating-label3 {
+  top: 0;
+  left: 22px;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+/* Label transition for focused or filled inputs */
+.floating-input4:focus ~ .floating-label4,
+.floating-input4:not(:placeholder-shown) ~ .floating-label4{
+  top: 0;
+  left: 22px;
+  font-size: 0.75rem;
+  color: #dadada;
+  background-color: #222;
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+
+
+  /* Optionally, style the placeholder text */
+  option {
+    color: white; /* Set color for option text */
+    background-color: #4e4e4e; /* Background color for options */
+    
+
+  }
+
+ 
+  
+    .form-step {
+      margin-bottom: 2rem;
+    }
+
+    .inline-input-group {
+      display: flex;
+      width: 98%;
+      gap: 1rem; /* Space between the inputs */
+      margin-top: 0.5rem;
+    }
+    
+    .inline-input-group input,
+    .inline-input-group select {
+      flex: 1; /* Makes each input take an equal amount of space */
+      padding: 0.5rem;
+     
+    }
+    
+    
+    
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem; /* Adjust to control spacing between input and buttons */
+    }
+    
+    button {
+      background-color: rgb(69, 69, 69); /* Primary button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 35px; /* Padding inside buttons */
+    
+    cursor: pointer; 
+
+      
+    
+    }
+    
+    .btnnext {
+     
+    margin-right: 18px;
+    }
+    
+    button:hover {
+      background-color: #656565; /* Darker on hover */
+    }
+
+
+  .progress-bar {
+    position: relative;
+    height: 10px;
+    background-color: #444444;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4a90e2; /* Progress color */
+    border-radius: 5px;
+    margin-top: 25px;
+  }
+  
+  .step-numbers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px; /* Space between progress bar and numbers */
+    margin-bottom: 15px;
+
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Circle width */
+    height: 30px; /* Circle height */
+    border: 3px solid #4a90e2; /* Border color */
+    border-radius: 50%; /* Make it a circle */
+    background-color: transparent; /* Background color for circles */
+    color: #ffffff; /* Text color */
+    font-weight: bold;
+    z-index: 1; /* Ensure step numbers appear above the progress bar */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    margin-top: 20px;
+  }
+  
+  .step.active {
+    background-color: #4a90e2; /* Fill color for the active step */
+    color: #ffffff; /* Change text color for active step */
+  }
+  
+  .step:not(.active):hover {
+    background-color: rgba(74, 144, 226, 0.2); /* Light hover effect for inactive steps */
+  }
+  
