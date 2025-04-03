@@ -17,6 +17,9 @@ const upload = multer({ storage: storage });
 
 // Route to get profile details
 router.get("/profile", profileController.getProfile);
+// Add this with your other routes
+router.post('/profiles/ratings', profileController.getProfilesForRatings);
+
 
 // Route to update profile picture
 router.post("/profile/upload", upload.single("profilePicture"), profileController.updateProfilePicture);

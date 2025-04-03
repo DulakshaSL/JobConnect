@@ -1,6 +1,6 @@
 .profile-main {
   margin-left: 40px;
-  margin-right: 40px;
+  margin-right:65px;
 }
 
 .profile-container {
@@ -167,7 +167,7 @@
   gap: 16px; /* Space between columns and rows */
 }
 
-.form-group {
+.personal-info-form .form-group {
   display: flex;
   flex-direction: column;
 }
@@ -178,8 +178,8 @@ label {
   color: #9ca3af;
 }
 
-input {
-  width: 95%; /* Consistent width */
+.personal-info-form input {
+  width: 95% !important; /* Consistent width */
   font-size: 14px;
   height: 30px; /* Consistent height */
   margin-bottom: 25px; /* Space between inputs */

@@ -325,7 +325,7 @@
   display: inline-block;
   padding: 10px 20px;
   margin-top: 20px; 
-  background-color: rgb(52, 52, 52);;
+  background-color: #0a5597;
   color: #fff;
   text-decoration: none;
   border-radius: 5px; 
@@ -333,7 +333,7 @@
 }
 
 .view-btn:hover {
-  background-color: #555; 
+  background-color: #073b68; 
 }
 
 

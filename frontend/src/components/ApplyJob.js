@@ -1,41 +1,68 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom"; // Import useParams from React Router
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/ApplyJob.css';
 
 const ApplyJob = () => {
-  const { jobId } = useParams(); // Get job ID from the URL
-  const [coverLetter, setCoverLetter] = useState("");
+  const { jobId } = useParams();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    coverLetter: "",
+    expectedSalary: "",
+    availability: "",
+    relocation: ""
+  });
   const [cv, setCv] = useState(null);
-  const [expectedSalary, setExpectedSalary] = useState("");
-  const [availability, setAvailability] = useState("");
-  const [relocation, setRelocation] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFileChange = (e) => {
-    setCv(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      // Check file size (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("File size exceeds 5MB limit");
+        return;
+      }
+      setCv(file);
+      setFileName(file.name);
+      toast.success("File selected successfully");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmitApplication = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Check if the form is valid
-    if (!cv || !coverLetter || !expectedSalary || !availability || !relocation) {
-      alert("Please fill in all the fields.");
+    if (!cv || !formData.coverLetter || !formData.expectedSalary || 
+        !formData.availability || !formData.relocation) {
+      toast.error("Please fill in all fields");
+      setIsSubmitting(false);
       return;
     }
 
     try {
-      const formData = new FormData();
-      formData.append("coverLetter", coverLetter);
-      formData.append("cv", cv);
-      formData.append("jobId", jobId); // Use jobId from the URL
-      formData.append("expectedSalary", expectedSalary);
-      formData.append("availability", availability);
-      formData.append("relocation", relocation);
+      const formDataToSend = new FormData();
+      formDataToSend.append("coverLetter", formData.coverLetter);
+      formDataToSend.append("cv", cv);
+      formDataToSend.append("jobId", jobId);
+      formDataToSend.append("expectedSalary", formData.expectedSalary);
+      formDataToSend.append("availability", formData.availability);
+      formDataToSend.append("relocation", formData.relocation);
 
       const response = await axios.post(
-        `http://localhost:5000/api/application/apply/${jobId}`, // Correctly include the job ID in the URL
-        formData,
+        `http://localhost:5000/api/application/apply/${jobId}`,
+        formDataToSend,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -45,72 +72,134 @@ const ApplyJob = () => {
       );
 
       if (response.data.success) {
-        alert("Application submitted successfully!");
+        toast.success("Application submitted successfully!");
+        // Reset form
+        setFormData({
+          coverLetter: "",
+          expectedSalary: "",
+          availability: "",
+          relocation: ""
+        });
+        setCv(null);
+        setFileName("");
+        // Redirect after 2 seconds
+        setTimeout(() => {
+          navigate('/list');
+        }, 2000);
       } else {
-        alert("Failed to submit application. Please try again.");
+        toast.error(response.data.message || "Failed to submit application");
       }
     } catch (error) {
-      console.error("Error submitting application:", error.response?.data || error.message);
-      alert("An error occurred while submitting the application.");
+      console.error("Error submitting application:", error);
+      toast.error(error.response?.data?.message || "An error occurred");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="apply-job-container">
-      <h2 className="apply-title">Application</h2>
+      <h2 className="apply-title">Job Application</h2>
       <form className="apply-form" onSubmit={handleSubmitApplication}>
-        <label className="form-label">Cover Letter:</label>
-        <textarea
-          className="form-textarea"
-          placeholder="Write your cover letter here..."
-          value={coverLetter}
-          onChange={(e) => setCoverLetter(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label className="form-label">Cover Letter:</label>
+          <textarea
+            className="form-textarea"
+            placeholder="Write your cover letter here..."
+            name="coverLetter"
+            value={formData.coverLetter}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
-        <label className="form-label">Upload CV:</label>
-        <input
-          className="form-input"
-          type="file"
-          onChange={handleFileChange}
-          required
-        />
+        <div className="form-group">
+          <label className="form-label">Upload CV:</label>
+          <div className="upload-wrapper">
+            <div className="upload-container">
+              <input
+                type="file"
+                className="upload-input"
+                onChange={handleFileChange}
+                accept=".pdf,.doc,.docx"
+                required
+              />
+              <div className="upload-icon">📄</div>
+              <div className="upload-text">
+                <strong>Click to upload</strong> or drag and drop
+              </div>
+              <div className="file-requirements">
+                PDF or DOCX (Max. 5MB)
+              </div>
+              {fileName && <div className="file-name">{fileName}</div>}
+            </div>
+          </div>
+        </div>
 
-        <label className="form-label">Expected Salary:</label>
-        <input
-          className="form-input"
-          type="text"
-          placeholder="e.g., $50,000 per year"
-          value={expectedSalary}
-          onChange={(e) => setExpectedSalary(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label className="form-label">Expected Salary:</label>
+          <input
+            className="form-input"
+            id="expected"
+            type="text"
+            placeholder="e.g., $50,000 per year"
+            name="expectedSalary"
+            value={formData.expectedSalary}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
-        <label className="form-label">Availability to Start:</label>
-        <input
-          className="form-input"
-          type="text"
-          placeholder="e.g., Immediate, 2 weeks notice"
-          value={availability}
-          onChange={(e) => setAvailability(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label className="form-label">Availability to Start:</label>
+          <input
+            className="form-input"
+            id="available"
+            type="text"
+            placeholder="e.g., Immediate, 2 weeks notice"
+            name="availability"
+            value={formData.availability}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
-        <label className="form-label">Willing to Relocate:</label>
-        <select
-          className="form-select"
-          value={relocation}
-          onChange={(e) => setRelocation(e.target.value)}
-          required
+        <div className="form-group">
+          <label className="form-label">Willing to Relocate:</label>
+          <select
+            className="form-select"
+            name="relocation"
+            value={formData.relocation}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select an option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Maybe">Maybe</option>
+          </select>
+        </div>
+
+        <button 
+          type="submit" 
+          className="submit-btn"
+          disabled={isSubmitting}
         >
-          <option value="">Select</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="Maybe">Maybe</option>
-        </select>
-
-        <button type="submit" className="submit-btn">Submit Application</button>
+          {isSubmitting ? "Submitting..." : "Submit Application"}
+        </button>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };

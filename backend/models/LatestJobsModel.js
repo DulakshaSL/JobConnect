@@ -3,7 +3,7 @@ const db = require('../config/db'); // Import the MySQL connection pool
 const LatestJobsModel = {
   // Fetch the latest jobs (sorted by posted_date)
   getLatest: async () => {
-    const query = 'SELECT * FROM jobs ORDER BY posted_date DESC LIMIT 5'; // Fetch latest 5 jobs
+    const query = 'SELECT * FROM jobs ORDER BY posted_date DESC LIMIT 10'; // Fetch latest 5 jobs
     const [jobs] = await db.execute(query); // Use db.execute for prepared statements
     return jobs;
   },

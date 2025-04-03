@@ -33,6 +33,32 @@ async function getProfileById(jobSeekerId) {
     return profile;
 }
 
+// Add this new optimized method specifically for ratings
+async function getProfilesForRatings(jobSeekerIds) {
+    try {
+        if (!jobSeekerIds.length) return {};
+        
+        const [profiles] = await pool.query(
+            "SELECT id, first_name, sur_name, profile_picture FROM jobseekers WHERE id IN (?)",
+            [jobSeekerIds]
+        );
+
+        return profiles.reduce((acc, profile) => {
+            acc[profile.id] = {
+                first_name: profile.first_name,
+                sur_name: profile.sur_name,
+                profile_picture: profile.profile_picture 
+                    ? `http://localhost:5000/uploads/${profile.profile_picture}`
+                    : null
+            };
+            return acc;
+        }, {});
+    } catch (error) {
+        console.error("Error fetching profiles for ratings:", error);
+        throw error;
+    }
+}
+
 async function updateProfilePicture(jobSeekerId, filePath) {
     await pool.query(
         "UPDATE jobseekers SET profile_picture = ? WHERE id = ?",
@@ -43,4 +69,5 @@ async function updateProfilePicture(jobSeekerId, filePath) {
 module.exports = {
     getProfileById,
     updateProfilePicture,
+    getProfilesForRatings,
 };

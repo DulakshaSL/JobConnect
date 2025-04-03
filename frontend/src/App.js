@@ -16,6 +16,8 @@ import EmployerLogin from "./components/EmployerLogin";
 import EmployerDashboardPage from "./components/employerDashboardPage";
 import Received from "./components/Received";
 import Create from "./components/CreateJobForm";
+import Ratings from "./components/RatingList";
+import ContactForm from "./components/ContactForm";
 
 
 function App() {
@@ -38,7 +40,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/resume" element={<ResumeUpload />} />
         <Route path="/receive" element={<Received />} />
+        <Route path="/contact" element={<ContactForm />} />
+        <Route path="/rating" element={<Ratings />} />
         <Route path="/employer/jobs/create" element={<Create />} />
+  
         {/* Dynamic route for filtering jobs */}
         <Route path="/list/:jobType" element={<JobLisitingPage />} />
         {/* Route for all jobs */}

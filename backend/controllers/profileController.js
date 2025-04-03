@@ -24,6 +24,24 @@ async function getProfile(req, res) {
     }
 }
 
+// New endpoint for bulk fetching profiles for ratings
+async function getProfilesForRatings(req, res) {
+    try {
+        const { ids } = req.body;
+        
+        if (!ids || !Array.isArray(ids)) {
+            return res.status(400).json({ message: "Invalid job seeker IDs" });
+        }
+
+        const profiles = await Profile.getProfilesForRatings(ids);
+        res.status(200).json(profiles);
+    } catch (error) {
+        console.error("Error getting profiles for ratings:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+
+
 // Update profile picture
 async function updateProfilePicture(req, res) {
     try {
@@ -50,5 +68,6 @@ async function updateProfilePicture(req, res) {
 
 module.exports = {
     getProfile,
+    getProfilesForRatings,
     updateProfilePicture,
 };

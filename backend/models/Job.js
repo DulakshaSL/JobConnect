@@ -82,13 +82,46 @@ const JobModel = {
   // Fetch latest jobs (sorted by posted_date)
   getLatestJobs: async () => {
     try {
-      const [jobs] = await db.execute('SELECT * FROM jobs ORDER BY posted_date DESC LIMIT 5');
-      return jobs; // Return the latest jobs (limit to 5)
+      const [jobs] = await db.execute('SELECT * FROM jobs ORDER BY posted_date DESC LIMIT 10');
+      return jobs; 
     } catch (error) {
       console.error('Error fetching latest jobs:', error);
       throw error;
     }
+  },
+
+// Get all job fields with counts
+getJobFieldsWithCounts: async () => {
+  try {
+    const [fields] = await db.execute(
+      `SELECT field, COUNT(*) as count 
+       FROM jobs 
+       WHERE field IS NOT NULL AND field != ''
+       GROUP BY field 
+       ORDER BY count DESC`
+    );
+    return fields;
+  } catch (error) {
+    console.error('Error fetching job fields with counts:', error);
+    throw error;
   }
+},
+
+// Get jobs by field
+getJobsByField: async (field) => {
+  try {
+    const [jobs] = await db.execute(
+      'SELECT * FROM jobs WHERE field = ?',
+      [field]
+    );
+    return jobs;
+  } catch (error) {
+    console.error('Error fetching jobs by field:', error);
+    throw error;
+  }
+}
+
+
 };
 
 module.exports = JobModel;

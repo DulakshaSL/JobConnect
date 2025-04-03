@@ -1,0 +1,217 @@
+/* RatingList.css */
+.rating-container {
+    max-width: 1300px;
+    margin: 6rem auto;
+    padding: 2rem;
+    background-color: rgba(42, 42, 42, 0.586);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    margin-left: 110px;
+    margin-right: 110px;
+    border-radius: 12px;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .rating-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #3a3a4a;
+  }
+  
+  .rating-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .average-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .average-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .star {
+    color: #4a4a5a;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+  }
+  
+  .star.filled {
+    color: #ffb74d;
+  }
+  
+  .star.half-filled {
+    color: #ffb74d;
+  }
+  
+  .total-ratings {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+  }
+  
+  .ratings-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .rating-card {
+    background-color: #323131b3;
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .rating-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4a4a5a;
+  }
+  
+  .user-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+  }
+  
+  .rating-stars {
+    display: flex;
+    gap: 0.2rem;
+    margin-top: 0.3rem;
+  }
+  
+  .rating-stars .star {
+    font-size: 1rem;
+  }
+  
+  .comment {
+    margin: 1rem 0;
+    line-height: 1.6;
+    color: #d0d0d0;
+  }
+  
+  .date {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    text-align: right;
+  }
+  
+  .no-ratings {
+    text-align: center;
+    padding: 2rem;
+    color: #8a8a8a;
+    font-style: italic;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: #8a8a8a;
+  }
+
+  /* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #3a3a4a;
+  }
+  
+  .pagination-button {
+    background-color: #3a3a4a;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .pagination-button:hover:not(:disabled) {
+    background-color: #4a4a5a;
+    transform: translateY(-2px);
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-button.active {
+    background-color: #6e8efb;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Animation for loading state */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .loading {
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .rating-container {
+      padding: 1.5rem;
+    }
+    
+    .rating-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .user-info {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

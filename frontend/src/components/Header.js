@@ -1,62 +1,94 @@
 // src/components/Header.js
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import '../styles/Header.css'; // Make sure your CSS file path is correct
+import { Link } from 'react-router-dom';
+import '../styles/Header.css';
 import companylogoImage from '../assets/images/companylogo.png';
 import searchImage from '../assets/images/search.png';
-import userImage from '../assets/images/account.png';
-import jobImage from '../assets/images/subimage1.jpg'; // Image for Jobs submenu
-import communityImage from '../assets/images/subimage4.jpg'; // Image for Contact submenu
-import servicesImage from '../assets/images/subimage2.png'; // Image for Services submenu
-import contactImage from '../assets/images/subimage3.jpg'; // Image for Contact submenu
+import defaultUserImage from '../assets/images/account.png';
+import jobImage from '../assets/images/subimage1.jpg';
+import servicesImage from '../assets/images/subimage2.png';
+import contactImage from '../assets/images/subimage3.jpg';
 import arrowIcon from '../assets/images/arrow.png';
 import MiniLoginIcon from '../assets/images/minilogin.png';
 import MiniSignupIcon from '../assets/images/minisignup.png';
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet"></link>
 
 const Header = () => {
-  const [cartItems, setCartItems] = useState([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const [gemCount, setGemCount] = useState(0);
   const [user, setUser] = useState(null);
-
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activePage, setActivePage] = useState('');
 
-  // Toggle dropdown visibility based on clicked item
+
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
-  // Close dropdown when clicked outside
   const handleOutsideClick = () => {
     setActiveDropdown(null);
   };
 
   useEffect(() => {
-    // Fetch cart items and user details from backend or local storage
-    fetchCartItems();
     fetchUserDetails();
   }, []);
 
-  const fetchCartItems = () => {
-    // Fetch cart items logic here (replace with your API endpoint)
-    // For example: setCartItems([{product_name: 'Shirt', quantity: 1, size: 'M', product_price: 1500}]);
+  const fetchUserDetails = async () => {
+    try {
+      // Fetch basic user info
+      const userResponse = await fetch('http://localhost:5000/api/jobseekers/current-user', {
+        credentials: 'include',
+      });
+
+      if (userResponse.ok) {
+        const userData = await userResponse.json();
+        
+        // Fetch profile info including profile picture
+        const profileResponse = await fetch('http://localhost:5000/api/profile', {
+          credentials: 'include',
+        });
+
+        let profilePicture = defaultUserImage;
+        if (profileResponse.ok) {
+          const profileData = await profileResponse.json();
+          if (profileData.profile_picture) {
+            profilePicture = profileData.profile_picture;
+          }
+        }
+
+        setUser({
+          id: userData.id,
+          email: userData.email,
+          profilePicture: profilePicture,
+        });
+      } else {
+        setUser(null);
+      }
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      setUser(null);
+    }
   };
 
-  const fetchUserDetails = () => {
-    // Fetch user details (like gem count and session info)
-    // For example: setUser({ username: 'John Doe', gems: 20 });
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/jobseekers/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        setUser(null);
+        window.location.href = '/login';
+      } else {
+        console.error('Logout failed');
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
   };
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
-  };
-
-  const showCartDetails = () => {
-    document.getElementById('cart-dropdown-content').style.display = 'block';
-  };
-
-  const hideCartDetails = () => {
-    document.getElementById('cart-dropdown-content').style.display = 'none';
   };
 
   return (
@@ -87,28 +119,25 @@ const Header = () => {
               </div>
             </div>
 
-           
-
-            
-
-            
-
             <li className="account-dropdown">
               {user ? (
                 <>
                   <a href="#" onClick={toggleDropdown}>
-                    <img src={userImage}  alt="User Account" className="login-icon" />
+                    <img 
+                      src={user.profilePicture} 
+                      alt="User Account" 
+                      className="login-icon profile-picture"
+                    />
                   </a>
                   <div className={`dropdown-content ${isDropdownVisible ? 'show' : ''}`} id="dropdownMenu">
                     <Link to="/profile">Profile</Link>
-                    <Link to="/history">Order History</Link>
-                    <Link to="/logout">Logout</Link>
+                    <a href="#" onClick={handleLogout}>Logout</a> 
                   </div>
                 </>
               ) : (
                 <>
                   <a href="#" onClick={toggleDropdown}>
-                    <img src={userImage} alt="Login/Register" className="login-icon" />
+                    <img src={defaultUserImage} alt="Login/Register" className="login-icon" />
                   </a>
                   <div className={`dropdown-content ${isDropdownVisible ? 'show' : ''}`} id="dropdownMenu">
                     <Link to="/login">Login <img src={MiniLoginIcon} alt="Arrow" className="mini-login" /> </Link>
@@ -118,119 +147,80 @@ const Header = () => {
               )}
             </li>
           </ul>
-          
         </nav>
-        </div>
-        <div className="bottom-section" onClick={handleOutsideClick}>
-      <nav>
-        <ul>
-          <li className="nav-item">
-            <Link to="/home">Home</Link>
-          </li>
-
-          {/* Jobs with Submenu */}
-          <li
-            className="nav-item has-dropdown"
-            onMouseEnter={() => handleDropdownToggle('jobs')}
-            onMouseLeave={() => handleDropdownToggle(null)}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDropdownToggle('jobs');
-            }}
-          >
-            
-              Jobs 
-            
-            {activeDropdown === 'jobs' && (
-              <div className="submenu-container">
-                <img src={jobImage} alt="Jobs Icon" className="submenu-image" />
-                <ul className="submenu">
-                  <li><Link to="/list/Part-Time">Part-Time <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/list/Full-Time">Full-Time <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/list/Free-Lance">Freelance <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                </ul>
-              </div>
-            )}
-          </li>
-
-          {/* Community with Submenu */}
-          <li
-            className="nav-item has-dropdown"
-            onMouseEnter={() => handleDropdownToggle('community')}
-            onMouseLeave={() => handleDropdownToggle(null)}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDropdownToggle('community');
-            }}
-          >
-            
-              Community
-            
-            {activeDropdown === 'community' && (
-              <div className="submenu-container">
-                <img src={communityImage} alt="Services Icon" className="submenu-image" />
-                <ul className="submenu">
-                  <li><Link to="/services/resume">Resume Building <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/services/interview">Interview Prep <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/services/networking">Networking Events <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                </ul>
-              </div>
-            )}
-          </li>
-
-          {/* Services with Submenu */}
-          <li
-            className="nav-item has-dropdown"
-            onMouseEnter={() => handleDropdownToggle('services')}
-            onMouseLeave={() => handleDropdownToggle(null)}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDropdownToggle('services');
-            }}
-          >
-            
-              Services
-            
-            {activeDropdown === 'services' && (
-              <div className="submenu-container">
-                <img src={servicesImage} alt="Services Icon" className="submenu-image" />
-                <ul className="submenu">
-                  <li><Link to="/services/resume">Resume Building <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/services/interview">Interview Prep <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/services/networking">Networking Events <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                </ul>
-              </div>
-            )}
-          </li>
-
-          {/* Contact with Submenu */}
-          <li
-            className="nav-item has-dropdown"
-            onMouseEnter={() => handleDropdownToggle('contact')}
-            onMouseLeave={() => handleDropdownToggle(null)}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDropdownToggle('contact');
-            }}
-          >
-            
-              Contact 
-            
-            {activeDropdown === 'contact' && (
-              <div className="submenu-container">
-                <img src={contactImage} alt="Contact Icon" className="submenu-image" />
-                <ul className="submenu">
-                  <li><Link to="/contact/email">Email Us <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/contact/call">Call Us <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                  <li><Link to="/contact/visit">Visit Our Office <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
-                </ul>
-              </div>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </div>
+      </div>
       
+      <div className="bottom-section" onClick={handleOutsideClick}>
+        <nav>
+          <ul>
+            <li className="nav-item">
+              <Link to="/home">Home</Link>
+            </li>
+
+            <li
+              className="nav-item has-dropdown"
+              onMouseEnter={() => handleDropdownToggle('jobs')}
+              onMouseLeave={() => handleDropdownToggle(null)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDropdownToggle('jobs');
+              }}
+            >
+              Jobs
+              {activeDropdown === 'jobs' && (
+                <div className="submenu-container">
+                  <img src={jobImage} alt="Jobs Icon" className="submenu-image" />
+                  <ul className="submenu">
+                    <li><Link to="/list">All Jobs <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                    <li><Link to="/list/Part-Time">Part-Time <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                    <li><Link to="/list/Full-Time">Full-Time <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                    <li><Link to="/list/Free-Lance">Freelance <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            <li
+              className="nav-item has-dropdown"
+              onMouseEnter={() => handleDropdownToggle('community')}
+              onMouseLeave={() => handleDropdownToggle(null)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDropdownToggle('community');
+              }}
+            >
+              Community
+             
+            </li>
+
+            <li
+              className="nav-item has-dropdown"
+              onMouseEnter={() => handleDropdownToggle('services')}
+              onMouseLeave={() => handleDropdownToggle(null)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDropdownToggle('services');
+              }}
+            >
+              Services
+              {activeDropdown === 'services' && (
+                <div className="submenu-container">
+                  <img src={servicesImage} alt="Services Icon" className="submenu-image" />
+                  <ul className="submenu">
+                    <li><Link to="/services/resume">Resume Building <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                    <li><Link to="/services/interview">Interview Prep <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                    <li><Link to="/services/networking">Networking Events <img src={arrowIcon} alt="Arrow" className="arrow-icon" /></Link></li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            <li className="nav-item">
+              <Link to="/contact"> Contact</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

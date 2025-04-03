@@ -27,13 +27,13 @@ async function getJobDetails(req, res) {
 
 // Get company information by job ID
 async function getCompanyDetailsByJobId(req, res) {
-  const { jobId } = req.params; // Extract jobId from the request parameters
+  const { jobId } = req.params;
   try {
-    const companyDetails = await Job.getCompanyByJobId(jobId); // Fetch company details using the job's company_id
+    const companyDetails = await Job.getCompanyByJobId(jobId);
     if (!companyDetails) {
       return res.status(404).json({ message: 'Company not found for this job' });
     }
-    res.status(200).json(companyDetails); // Send the company details as a response
+    res.status(200).json(companyDetails);
   } catch (error) {
     console.error("Error fetching company details:", error);
     res.status(500).json({ message: "Error fetching company details" });
@@ -42,19 +42,50 @@ async function getCompanyDetailsByJobId(req, res) {
 
 // Get jobs by role
 async function getJobsByRole(req, res) {
-  const { role } = req.params; // Extract role from query parameters
+  const { role } = req.params;
   try {
     const jobs = await Job.getJobsByRole(role);
     if (jobs.length === 0) {
       return res.status(404).json({ message: 'No jobs found for this role' });
     }
-    res.status(200).json(jobs); // Send the filtered jobs as the response
+    res.status(200).json(jobs);
   } catch (error) {
     console.error('Error fetching jobs by role:', error);
     res.status(500).json({ message: 'Error fetching jobs by role' });
   }
 }
 
+// Get all job fields with counts
+async function getJobFieldsWithCounts(req, res) {
+  try {
+    const fields = await Job.getJobFieldsWithCounts();
+    res.status(200).json(fields);
+  } catch (error) {
+    console.error('Error fetching job fields:', error);
+    res.status(500).json({ message: 'Error fetching job fields' });
+  }
+}
 
+// Get jobs by field
+async function getJobsByField(req, res) {
+  const { field } = req.params;
+  try {
+    const jobs = await Job.getJobsByField(field);
+    if (jobs.length === 0) {
+      return res.status(404).json({ message: `No jobs found in ${field} field` });
+    }
+    res.status(200).json(jobs);
+  } catch (error) {
+    console.error('Error fetching jobs by field:', error);
+    res.status(500).json({ message: 'Error fetching jobs by field' });
+  }
+}
 
-module.exports = { getJobs, getJobDetails, getCompanyDetailsByJobId, getJobsByRole  };
+module.exports = {
+  getJobs,
+  getJobDetails,
+  getCompanyDetailsByJobId,
+  getJobsByRole,
+  getJobFieldsWithCounts,
+  getJobsByField
+};

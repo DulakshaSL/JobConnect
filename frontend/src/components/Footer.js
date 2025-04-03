@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="info-card">
             <img src={onlineImage} alt="Support" />
             <h3>Support</h3>
-            <p>Get help with your online order</p>
+            <p>Get help</p>
             <Link to="/profile">
               <button>Get Help</button>
             </Link>
@@ -33,10 +33,10 @@ const Footer = () => {
 
           <div className="info-card">
             <img src={trackImage} alt="Track Order" />
-            <h3>Order</h3>
-            <p>Track Your Order</p>
+            <h3>Track</h3>
+            <p>Track Your Application</p>
             <Link to="/profile">
-              <button>Track Order</button>
+              <button>Track</button>
             </Link>
           </div>
         </div>
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
 
           <div id="faq">
-            <h4>©2024 ABC Restaurant All Rights Reserved</h4>
+            <h4>©2025 JobConnect All Rights Reserved</h4>
           </div>
         </div>
       </section>

@@ -46,6 +46,7 @@ const JobDetails = () => {
   };
 
   return (
+    <div className='job-details-main'>
     <div className="job-details-container">
       {/* Left Side - Company Overview */}
       <div className="company-overview">
@@ -121,6 +122,8 @@ const JobDetails = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

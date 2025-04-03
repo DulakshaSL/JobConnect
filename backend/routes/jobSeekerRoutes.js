@@ -3,6 +3,8 @@ const multer = require('multer');
 const { createJobSeeker } = require('../controllers/jobSeekerController');
 const { checkEmail } = require('../controllers/jobSeekerController');
 const { loginJobSeeker } = require('../controllers/jobSeekerController');
+const { getCurrentUser } = require('../controllers/jobSeekerController');
+const { logout } = require('../controllers/jobSeekerController');
 
 const router = express.Router();
 
@@ -19,8 +21,9 @@ router.post('/signup', upload.single('cv'), createJobSeeker);
 // Route to check if email already exists
 router.post('/check-email', checkEmail);
 
+router.get('/current-user', getCurrentUser);
 
-
+router.post('/logout', logout);
 
 // Route for job seeker login
 router.post('/login', loginJobSeeker);

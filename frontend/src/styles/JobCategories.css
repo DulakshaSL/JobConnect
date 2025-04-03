@@ -1,0 +1,143 @@
+.job-categories-section {
+    padding: 1rem 0;
+    background-color: transparent;
+    margin-left: 110px;
+    margin-right: 100px;
+    margin-top: -100px;
+    padding-bottom: 50px;
+  }
+  
+  .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 1rem;
+  }
+  
+  .field-title {
+    text-align: center !important;
+    margin-bottom: 3rem  !important;
+    color: white;
+    font-size: 1.47rem;
+    border-top: 1px solid #989696;
+    padding-top: 25px;
+  }
+  
+  .navigation-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .fields-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .field-card {
+    background-color: rgba(52, 52, 52, 0.466);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 4px solid #3498db;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .field-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .field-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .job-count {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .view-jobs {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-arrow {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-arrow:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+  .page-indicator {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .fields-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .job-categories-section {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    
+    .fields-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .fields-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .navigation-container {
+      flex-direction: column;
+    }
+  }

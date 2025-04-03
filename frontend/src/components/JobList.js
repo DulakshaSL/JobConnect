@@ -57,7 +57,7 @@ const JobList = () => {
         return { ...prevFilters, selectedLocation: [] };
       }
       
-      const allLocations = ['New York', 'San Francisco', 'Remote'];
+      const allLocations = ['Colombo', 'Kaluthara', 'Gampaha'];
       const isSelectAllChecked = selectedLocations.length === allLocations.length;
 
       return { 
@@ -128,7 +128,7 @@ const JobList = () => {
   const filteredJobs = jobs.filter((job) => {
     const searchQueryLower = filters.searchQuery.toLowerCase();
     
-    // ✅ Normalize jobType from URL before comparison
+    
     const normalizedJobType = normalizeJobType(jobType);
   
     const matchesJobType = 
@@ -172,6 +172,7 @@ const JobList = () => {
   };
 
   return (
+    <div className='job-list-main'>
     <div className='list-main'>
       <div className="job-search-bar">
         <input
@@ -196,7 +197,7 @@ const JobList = () => {
                 <input type="checkbox" checked={filters.selectedLocation.includes('Select All')} readOnly />
                 All
               </div>
-              {['New York', 'San Francisco', 'Remote'].map((location) => (
+              {['Colombo', 'Kaluthara', 'Gampaha'].map((location) => (
                 <div key={location} className="option-item" onClick={() => handleLocationChange(location)}>
                   <input type="checkbox" checked={filters.selectedLocation.includes(location)} readOnly />
                   {location}
@@ -230,7 +231,7 @@ const JobList = () => {
           </label>
           <label>
             Location
-            <input type="text" name="location" placeholder="Enter location" onChange={handleFilterChange} />
+            <input className='field-location' type="text" name="location" placeholder="Enter location" onChange={handleFilterChange} />
           </label>
           <button className='ai-button' onClick={handleAIRecommendation}>
         <img src={AIIcon} alt="AI" className="ai-icon" />
@@ -264,6 +265,7 @@ const JobList = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

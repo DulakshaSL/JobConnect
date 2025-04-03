@@ -1,6 +1,5 @@
-// src/components/Carousel.js
 import React, { useState, useEffect } from 'react';
-import '../styles/Carousel.css'; // Ensure you have styling for the carousel
+import '../styles/Carousel.css';
 
 const Carousel = () => {
   const [carouselItems, setCarouselItems] = useState([]);
@@ -15,7 +14,7 @@ const Carousel = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('Fetched carousel data:', data); // Check the data structure
+        console.log('Fetched carousel data:', data);
         setCarouselItems(data);
       } catch (error) {
         console.error('Error fetching carousel data:', error);
@@ -28,13 +27,15 @@ const Carousel = () => {
     fetchCarouselItems();
   }, []);
 
-  // Carousel functionality to navigate between slides
   useEffect(() => {
     if (!carouselItems.length) return;
 
-    // Main Carousel Function
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (!prevBtn || !nextBtn) return; // Prevent errors if elements are not found
 
     function showSlide(n) {
       slides.forEach((slide) => (slide.style.opacity = '0'));
@@ -42,15 +43,18 @@ const Carousel = () => {
       slides[currentSlide].style.opacity = '1';
     }
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
+    function prevSlide() {
       showSlide(currentSlide - 1);
       resetSlideInterval();
-    });
+    }
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
+    function nextSlide() {
       showSlide(currentSlide + 1);
       resetSlideInterval();
-    });
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
 
     setTimeout(() => showSlide(0), 50);
 
@@ -65,10 +69,9 @@ const Carousel = () => {
       }, 3000);
     }
 
-    // Cleanup function to remove event listeners and interval
     return () => {
-      document.getElementById('prevBtn').removeEventListener('click', showSlide);
-      document.getElementById('nextBtn').removeEventListener('click', showSlide);
+      prevBtn.removeEventListener('click', prevSlide);
+      nextBtn.removeEventListener('click', nextSlide);
       clearInterval(slideInterval);
     };
   }, [carouselItems]);

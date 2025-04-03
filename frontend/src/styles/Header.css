@@ -10,6 +10,24 @@ header {
   
 }
 
+
+/* Profile picture styles */
+.login-icon.profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.login-icon.profile-picture:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
 /* Overlay */
 #overlay {
 position: fixed;
@@ -46,9 +64,16 @@ padding-bottom: 10px;
 }
 
 #logo{
-font-size: 27px;
-font-family: 'Times New Roman', Times, serif;
-font-weight:bold;
+  font-family: 'Inter', sans-serif; /* Modern tech font similar to DeepSeek */
+  font-weight: 800; /* Extra bold */
+  font-size: 1.8rem; /* Adjust size as needed */
+  letter-spacing: -0.5px; /* Slightly condensed */
+  color: #000; /* Or use DeepSeek's blue: #1e90ff */
+  text-transform: uppercase; /* If you want all caps like DeepSeek */
+  background: linear-gradient(90deg, #e0e0e0cf, #a0a0a0d4); /* Gradient like DeepSeek */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 padding-bottom: 13px;
 
 }
@@ -164,6 +189,7 @@ position: relative;
   display: flex;
   flex-direction: column;
   width: 200px;
+  height: 150px;
   padding: 25px;
 }
 

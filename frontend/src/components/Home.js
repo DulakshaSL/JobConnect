@@ -9,10 +9,8 @@ import LatestJobs from './LatestJobs';
 import Events from './EventList';
 import section1Image from '../assets/images/section1.jpg';
 import TopHiringCompanies from './TopHiringCompanies';
-import dish2Image from '../assets/images/grid2.jpg';
-import dish3Image from '../assets/images/grid3.jpg';
-import dish4Image from '../assets/images/grid4.jpg';
-import aboutImage from '../assets/images/about.jpg';
+import JobCategories from './JobCategories';
+import RatingList from './RatingList';
 
 
 function Home() {
@@ -45,26 +43,9 @@ function Home() {
   </div>
 </section>
 
-
-
-<h2 class="section-title">About Us</h2>
-<section id="about-us">
-  <div class="about-container">
-    <img src={aboutImage} alt="About JobConnect" class="about-img"/>
-    
-    <div class="about-text">
-      <h3>Our Story</h3>
-      <p>JobConnect was created with a vision to bridge the gap between job seekers and employers through intelligent job matching and advanced algorithms. Our platform streamlines the hiring process, making it more efficient and effective for both parties.</p>
-      
-      <h3>Our Commitment</h3>
-      <p>At JobConnect, we are dedicated to empowering job seekers with personalized recommendations and giving employers access to the right talent. Our platform fosters professional growth through community engagement, skills assessments, and insightful analytics.</p>
-      
-      <a href="/about" class="learn-more">Learn More</a>
-    </div>
-  </div>
-</section>
-
 <LatestJobs />
+
+<JobCategories/> 
 
 {/* Menu Introduction Section */}
 <section className="menu-introduction">
@@ -84,16 +65,29 @@ function Home() {
         </div>
       </section>
 
-
-
-
+      <Events /> 
+    
 
       <div className="App">
       <TopHiringCompanies />
     </div>
 
-    <Events /> 
 
+    <RatingList /> 
+
+
+
+
+
+
+
+
+
+
+
+
+     
+ 
     </div>
   );
 }

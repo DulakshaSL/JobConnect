@@ -61,7 +61,7 @@ const ApplicationTracker = () => {
       <div className="applications-list">
         {filteredApplications.map((application) => (
           <div className="application-card" key={application.application_id}>
-            <div className="company-logo">
+            <div className="comp-logo">
               <img src={`http://localhost:5000/images/${application.company_logo}`} alt="Company Logo" />
             </div>
             <div className="application-details">

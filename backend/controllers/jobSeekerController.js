@@ -66,3 +66,27 @@ exports.loginJobSeeker = async (req, res) => {
     res.status(500).json({ error: 'Failed to log in.' });
   }
 };
+
+// controllers/authController.js
+exports.getCurrentUser = (req, res) => {
+  if (req.session.jobSeekerId) {
+    return res.json({
+      id: req.session.jobSeekerId,
+      email: req.session.jobSeekerEmail,
+     
+    });
+  }
+  return res.status(401).json({ message: 'Not authenticated' });
+};
+
+
+// controllers/authController.js
+exports.logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    res.clearCookie('connect.sid'); // Clear the session cookie
+    res.json({ message: 'Logged out successfully' });
+  });
+};

@@ -14,6 +14,8 @@ const companyRoutes = require('./routes/companyRoutes');
 // Import your new event routes
 const eventRoutes = require('./routes/eventRoutes');
 const employerRoutes = require('./routes/employerRoutes');
+const ratingRoutes = require('./routes/ratingRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 const PORT = 5000;
 
@@ -58,6 +60,8 @@ app.use('/api/application', applicationRoutes);
 app.use('/api/community', communityRoutes); // Now uses `/api/community` path for community routes
 app.use("/api", profileRoutes);
 app.use("/api/employers", employerRoutes);
+app.use("/api/ratings", ratingRoutes);
+app.use("/api/contact", contactRoutes);
 // Routes
 app.use('/api/latest-jobs', latestJobsRoutes); // Use the latest jobs routes
 

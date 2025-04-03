@@ -1,15 +1,16 @@
 /* src/styles/EventList.css */
 .event-container {
-  padding: 2rem;
   color: #ffffff;
-  padding-left: 100px;
+  margin-left: 110px;
+  margin-right: 110px;
 }
 
-.header {
+.event-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-top: -40px;
+  margin-bottom: 20px;
 }
 
 .event-navigation {
@@ -24,6 +25,58 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   flex-grow: 1;
+  will-change: opacity;
+}
+
+/* Fade animations */
+.event-list.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.event-list.fade-out {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Progress Indicators */
+.progress-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.indicator.active {
+  background-color: #0a5597;
+  transform: scale(1.2);
 }
 
 .nav-arrow {
@@ -47,7 +100,7 @@
 }
 
 .event-card {
-  background-color: #1e1e1e;
+  background-color: rgba(52, 52, 52, 0.466);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
